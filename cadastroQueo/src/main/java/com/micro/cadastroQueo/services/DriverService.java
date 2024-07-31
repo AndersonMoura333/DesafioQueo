@@ -52,7 +52,7 @@ public class DriverService {
 	
 	@Transactional(isolation =  Isolation.SERIALIZABLE)
 	public DriverEntity findByRegistrationWithPessimisticLock(String registration) {
-        DriverEntity driverEntity = driverRepository.findByRegistrationWithPessimisticLock(registration).get();
+        DriverEntity driverEntity = driverRepository.findByRegistrationWithOptimisticLock(registration).get();
         return driverRepository.save(driverEntity);
     }
 	

@@ -16,5 +16,5 @@ public interface DriverRepository extends JpaRepository<DriverEntity, Long> {
     
     @Lock(LockModeType.OPTIMISTIC_FORCE_INCREMENT)
     @Query("SELECT d FROM DriverEntity d WHERE d.registration = :registration")
-    Optional<DriverEntity> findByRegistrationWithPessimisticLock(String registration);
+    Optional<DriverEntity> findByRegistrationWithOptimisticLock(String registration);
 }
